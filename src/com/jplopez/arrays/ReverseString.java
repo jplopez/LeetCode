@@ -1,5 +1,7 @@
 package com.jplopez.arrays;
 
+import java.util.Arrays;
+
 public class ReverseString {
 
   public void reverseString(char[] s) {
@@ -18,12 +20,24 @@ public class ReverseString {
     if(x<0)f=-1;
     char[] s = String.valueOf(Math.abs(x)).toCharArray();
     reverseString(s);
-    return f*strToInt32(s);      
+    try{ 
+      return f*strToInt32(s);      
+    } catch(NumberFormatException e) {
+      return 0;
+    }
   }
 
   private int strToInt32(char[] s) {
     Long rev=Long.valueOf(String.valueOf(s));
     if(rev>LIMIT || rev<-1*LIMIT) return 0;
     return rev.intValue();
+  }
+
+  public boolean isAnagram(String s, String t) {
+    char[] sArray=s.trim().replace(" ","").toCharArray();
+    char[] tArray=t.trim().replace(" ","").toCharArray();
+    Arrays.sort(sArray,0,sArray.length);
+    Arrays.sort(tArray,0,tArray.length);
+    return Arrays.toString(sArray).equals(Arrays.toString(tArray));
   }
 }
