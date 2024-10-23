@@ -18,59 +18,56 @@ public class ReverseStringTest {
 
   @Test
   public void ex1() {
-    char[] s = {'h','e','l','l','o'};
-    char[] output= {'o','l','l','e','h'};
-  
+    char[] s={'h','e','l','l','o'};
+    char[] output={'o','l','l','e','h'};
     rs.reverseString(s);
-    for(int i=0;i<s.length;i++) assertTrue("["+i+"] expected '"+output[i]+"'' received '"+s[i]+"'",s[i]==output[i]);
-
+    for(int i=0;i<s.length;i++) 
+      assertTrue("["+i+"] expected '"+output[i]+"'' received '"+s[i]+"'",s[i]==output[i]);
   }
 
   @Test
   public void ex2() {
-    char[] s = {'H','a','n','n','a','h'};
-    char[] output= {'h','a','n','n','a','H'};
-  
+    char[] s={'H','a','n','n','a','h'};
+    char[] output={'h','a','n','n','a','H'};
     rs.reverseString(s);
-    for(int i=0;i<s.length;i++) assertTrue(i+" expected "+output[i]+" received "+s[i],s[i]==output[i]);
+    for(int i=0;i<s.length;i++)assertTrue(i+" expected "+output[i]+" received "+s[i],s[i]==output[i]);
   }
 
   @Test
   public void reverseInt() {
-    int x = 123;
-    int out = rs.reverse(x);
+    int x=123;
+    int out=rs.reverse(x);
     assertTrue("Expected 321. Received "+out,out==321);
 
-    x = -123;
-    out = rs.reverse(x);
+    x=-123;
+    out=rs.reverse(x);
     assertTrue("Expected -321. Received "+out,out==-321);
 
-    x = 120;
-    out = rs.reverse(x);
+    x=120;
+    out=rs.reverse(x);
     assertTrue("Expected 21. Received "+out,out==21);
-
   }
 
   @Test
   public void reverseInt1() {
-    int x = -2147483648;
-    int out = rs.reverse(x);
+    int x=-2147483648;
+    int out=rs.reverse(x);
     assertTrue("Expected 0. Received "+out,out==0);
   }
 
   @Test
   public void anagram1() {
-    String s = "anagram", t = "nagaram";
-    assertTrue(rs.isAnagram(s, t));
+    String s="anagram",t="nagaram";
+    assertTrue(rs.isAnagram(s,t));
 
-    s = "rat";t = "car";
-    assertFalse(rs.isAnagram(s, t));
+    s="rat";t="car";
+    assertFalse(rs.isAnagram(s,t));
   }
 
   @Test
   public void anagram2() {
     String in="new york times";
     String out="monkeys write";
-    assertTrue(rs.isAnagram(in, out));
+    assertTrue(rs.isAnagram(in,out));
   }
 }
